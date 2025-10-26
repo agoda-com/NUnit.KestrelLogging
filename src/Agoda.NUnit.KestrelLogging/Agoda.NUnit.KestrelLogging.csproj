@@ -40,6 +40,10 @@
     <!-- ASP.NET Core dependencies -->
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
     <PackageReference Include="NUnit" Version="4.4.0" />
+<PackageReference Include="Agoda.Analyzers" Version="1.1.156">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
   </ItemGroup>
   
   <ItemGroup>

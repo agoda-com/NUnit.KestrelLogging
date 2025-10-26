@@ -133,12 +133,12 @@ public class ParallelTests
             var task2 = client2.GetAsync("/api/test");
             var task3 = client3.GetAsync("/");
 
-            await Task.WhenAll(task1, task2, task3);
+            var responses = await Task.WhenAll(task1, task2, task3);
 
             // Assert
-            Assert.That(task1.Result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(task2.Result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            Assert.That(task3.Result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(responses[0].StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(responses[1].StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            Assert.That(responses[2].StatusCode, Is.EqualTo(HttpStatusCode.OK));
 
             TestContext.WriteLine("All parallel factories completed successfully");
         }
