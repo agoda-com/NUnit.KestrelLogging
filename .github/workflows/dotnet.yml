@@ -40,7 +40,7 @@ jobs:
     - name: Run Unit Tests and Generate Coverage
       working-directory: ${{ env.GIT_REPO_ROOT }}    
       run: >
-        dotnet test $UNITTEST_PROJECT_NAME/$UNITTEST_PROJECT_NAME.csproj 
+        dotnet test ${{ env.UNITTEST_PROJECT_NAME }}/${{ env.UNITTEST_PROJECT_NAME }}.csproj 
         --logger:"junit;LogFilePath=../artifacts/{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose" 
         --collect:"XPlat Code Coverage" 
         -p:CollectCoverage=true 
