@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- Target framework for analyzer compatibility -->
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    
+    <!-- Disable automatic assembly attribute generation -->
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    
+    <!-- Package generation -->
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <!-- NuGet package metadata -->
+    <PackageId>Agoda.NUnit.KestrelLogging</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Agoda</Authors>
+    <Company>Agoda</Company>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/agoda-com/Agoda.NUnit.KestrelLogging</PackageProjectUrl>
+    <PackageIcon>AgodaNUnitKestrelLoggingLogo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/agoda-com/Agoda.NUnit.KestrelLogging</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Helper library for NUnit tests with ASP.NET Core Kestrel that fixes Console.WriteLine and TestContext output not appearing in test results</Description>
+    <PackageTags>nunit;kestrel;aspnetcore;testing;logging;webapplicationfactory</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <!-- ASP.NET Core dependencies -->
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
+    <PackageReference Include="NUnit" Version="4.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Include logo and readme in package -->
+    <None Include="..\..\AgodaNUnitKestrelLoggingLogo.png" Pack="true" PackagePath="\" Visible="false" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
+

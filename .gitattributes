@@ -1,0 +1,84 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.cs text diff=csharp
+*.csx text diff=csharp
+*.vb text
+*.vbx text
+*.fs text
+*.fsx text
+*.fsi text
+*.sql text
+
+# Scripts
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Serialization
+*.json text
+*.xml text
+*.yml text
+*.yaml text
+*.toml text
+
+# Documentation
+*.md text diff=markdown
+*.txt text
+*.adoc text
+*.textile text
+*.mustache text
+*.csv text
+*.tab text
+*.tsv text
+
+# Graphics
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+
+# Archives
+*.7z binary
+*.gz binary
+*.tar binary
+*.zip binary
+
+# Executables
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# MSBuild
+*.csproj text merge=union
+*.vbproj text merge=union
+*.fsproj text merge=union
+*.dbproj text merge=union
+*.sln text eol=crlf merge=union
+
+# NuGet
+*.nupkg binary
+*.snupkg binary
+
+# Visual Studio
+*.suo binary
+*.user binary
+*.userosscache binary
+*.sln.docstates binary
+*.userprefs binary
+*.pidb binary
+*.booproj binary
+*.svd binary
+*.pdb binary
+*.opendb binary
+*.VC.db binary
+*.VC.VC.opendb binary
+
+# Linguist overrides
+docs/api/** linguist-generated=true
+
