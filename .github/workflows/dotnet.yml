@@ -46,15 +46,25 @@ jobs:
         configuration: Debug
 
 
-    - name: Pack Release
+    - name: Pack Release (library only)
       if: github.ref == 'refs/heads/main'
       working-directory: ${{ env.GIT_REPO_ROOT }}    
-      run: dotnet pack ${{ env.SOLUTION_FILE }} --configuration Release -o finalpackage --no-build -p:PackageVersion=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}
+      run: >
+        dotnet pack Agoda.NUnit.KestrelLogging/Agoda.NUnit.KestrelLogging.csproj
+        --configuration Release
+        -o finalpackage
+        --no-build
+        -p:PackageVersion=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}
 
-    - name: Pack Preview
+    - name: Pack Preview (library only)
       if: github.ref != 'refs/heads/main'
       working-directory: ${{ env.GIT_REPO_ROOT }}    
-      run: dotnet pack ${{ env.SOLUTION_FILE }} --configuration Release -o finalpackage --no-build -p:PackageVersion=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}-preview
+      run: >
+        dotnet pack Agoda.NUnit.KestrelLogging/Agoda.NUnit.KestrelLogging.csproj
+        --configuration Release
+        -o finalpackage
+        --no-build
+        -p:PackageVersion=${{ env.MAJOR_MINOR_VERSION }}${{ github.run_number }}-preview
 
     - name: Publish nupkg artifact
       uses: actions/upload-artifact@v4
@@ -66,7 +76,7 @@ jobs:
       uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: src/Agoda.NUnit.KestrelLogging.Tests/coverage.cobertura.xml
+        files: src/Agoda.NUnit.KestrelLogging.Test/results.cobertura.xml
         fail_ci_if_error: true
 
   deploy:
