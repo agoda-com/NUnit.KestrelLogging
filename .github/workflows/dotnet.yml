@@ -46,7 +46,7 @@ jobs:
         -p:CollectCoverage=true 
         -p:CoverletOutputFormat=cobertura 
         -p:CoverletOutput="coverage.cobertura.xml"
-        -c $DOTNET_TEST_CONFIGURATION 
+        -c Release 
 
     - name: Pack Release (library only)
       if: github.ref == 'refs/heads/main'
