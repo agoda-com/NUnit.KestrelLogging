@@ -36,16 +36,14 @@ jobs:
       working-directory: ${{ env.GIT_REPO_ROOT }}
       run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Debug --no-restore
 
-    - name: Test with coverage (collect Cobertura)
-      working-directory: ${{ env.GIT_REPO_ROOT }}
-      run: >
-        dotnet test ${{ env.SOLUTION_FILE }}
-        --no-build
-        --configuration Debug
-        /p:CollectCoverage=true
-        /p:CoverletOutputFormat=cobertura
-        /p:CoverletOutput=../TestResults/coverage
-        /p:ExcludeByFile="**/bin/**,**/obj/**"
+    - name: Run Unit Tests and Generate Coverage
+      uses: glennawatson/coverlet-msbuild@v1
+      with:
+        project-files: '**/*Tests.csproj'
+        no-build: true  
+        output-format: cobertura
+        output: results
+        configuration: Debug
 
     - name: Upload coverage artifact
       uses: actions/upload-artifact@v4
